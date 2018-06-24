@@ -1,13 +1,16 @@
 <template>
   <div class="flex flex-wrap w-full h-full">
-    <span class="board-section board-section--local flex items-center justify-center text-5xl"
-      v-for="i in 9"
-      :key="i">X</span>
+    <square v-for="i in 9" :key="i"></square>
   </div>
 </template>
 
 <script>
+import Square from '@/components/Square.vue';
+
 export default {
   name: 'board-section',
+  components: {
+    Square,
+  },
 };
 </script>
