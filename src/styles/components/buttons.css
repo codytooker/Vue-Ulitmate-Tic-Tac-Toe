@@ -1,0 +1,11 @@
+.btn {
+  @apply .border .rounded py-3 px-3 .no-underline;
+}
+
+.btn--primary {
+  @apply .border-blue .text-blue;
+}
+
+.btn--primary:hover {
+  @apply .text-white .bg-blue;
+}
