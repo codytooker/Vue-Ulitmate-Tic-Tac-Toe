@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-screen h-screen bg-blue">
+  <div class="flex items-center justify-center w-screen h-screen bg-blue">
     gameboard goes here
   </div>
 </template>
