@@ -1,3 +1,4 @@
+@import './utilities/transitions.css';
 @import './components/buttons.css';
 
 @tailwind preflight;
