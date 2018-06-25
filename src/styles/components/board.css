@@ -1,0 +1,9 @@
+.board {
+  display: grid;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+  grid-gap: 4px;
+
+  &--local {
+    grid-gap: 1px;
+  }
+}
