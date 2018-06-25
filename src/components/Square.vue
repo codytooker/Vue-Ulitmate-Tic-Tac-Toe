@@ -1,9 +1,11 @@
 <template>
-  <span class="board-section board-section--local flex items-center justify-center text-5xl">X</span>
+  <span class="flex items-center justify-center bg-white text-5xl select-none" v-text="value" />
 </template>
 
 <script>
 export default {
-
+  props: [
+    'value',
+  ],
 };
 </script>
