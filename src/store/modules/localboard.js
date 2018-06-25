@@ -22,9 +22,6 @@ const squares = {
     getBoardById: state => id => {
       return state[id];
     },
-    getSquareById: state => id => {
-      return state.find(square => square.id === id);
-    }
   },
   mutations: {
     setSquareValue(state, { board, square, value }) {
