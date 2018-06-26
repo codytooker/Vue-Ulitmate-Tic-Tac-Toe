@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Cell from '@/components/cell.vue';
+import Cell from '@/components/Cell.vue';
 
 export default {
   name: 'board-section',
