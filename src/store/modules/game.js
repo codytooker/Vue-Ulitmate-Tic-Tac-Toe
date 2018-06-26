@@ -21,6 +21,9 @@ const game = {
     setWinner(state, { symbol }) {
       state.winner = symbol;
     },
+    resetState(state) {
+      Object.assign(state, getDefaultState());
+    },
   },
   actions: {
     processTurn({ commit, getters, rootGetters }, { board, cell }) {

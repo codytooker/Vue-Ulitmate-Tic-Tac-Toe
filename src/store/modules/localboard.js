@@ -30,6 +30,9 @@ const cells = {
     setBoardWinner(state, { board, winner }) {
       state[board].winner = winner;
     },
+    resetState(state) {
+      Object.assign(state, getDefaultState());
+    },
   },
 };
 

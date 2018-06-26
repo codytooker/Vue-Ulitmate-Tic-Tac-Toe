@@ -11,4 +11,10 @@ export default new Vuex.Store({
     localboard,
     game,
   },
+  actions: {
+    resetAll({ commit }) {
+      commit('localboard/resetState');
+      commit('game/resetState');
+    },
+  },
 });
