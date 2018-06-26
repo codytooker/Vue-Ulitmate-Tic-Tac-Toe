@@ -20,6 +20,7 @@ const cells = {
   state: setInitialState,
   getters: {
     getBoardById: state => id => state[id],
+    getBoardWinners: state => state.map(board => board.winner),
   },
   mutations: {
     setCellValue(state, { board, cell, value }) {
