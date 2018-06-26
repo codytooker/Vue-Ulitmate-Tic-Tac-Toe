@@ -3,11 +3,11 @@ const setInitialState = () => {
   for (let i = 0; i < 9; i += 1) {
     const el = {
       winner: null,
-      squares: [],
+      cells: [],
     };
     for (let j = 0; j < 9; j += 1) {
-      const square = null;
-      el.squares.push(square);
+      const cell = null;
+      el.cells.push(cell);
     }
 
     state.push(el);
@@ -16,16 +16,16 @@ const setInitialState = () => {
   return state;
 };
 
-const squares = {
+const cells = {
   state: setInitialState,
   getters: {
     getBoardById: state => id => state[id],
   },
   mutations: {
-    setSquareValue(state, { board, square, value }) {
-      state[board].squares.splice(square, 1, value);
+    setcellValue(state, { board, cell, value }) {
+      state[board].cells.splice(cell, 1, value);
     },
   },
 };
 
-export default squares;
+export default cells;

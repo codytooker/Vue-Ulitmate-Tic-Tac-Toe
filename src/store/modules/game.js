@@ -16,11 +16,11 @@ const game = {
     },
   },
   actions: {
-    processTurn({ rootState, commit, getters }, { board, square }) {
-      if (rootState.localboard[board].squares[square] === null) {
-        commit('setSquareValue', {
+    processTurn({ rootState, commit, getters }, { board, cell }) {
+      if (rootState.localboard[board].cells[cell] === null) {
+        commit('setcellValue', {
           board,
-          square,
+          cell,
           value: getters.getCurrentTurn,
         });
         commit('changeCurrentTurn');

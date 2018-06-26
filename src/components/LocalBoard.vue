@@ -1,14 +1,14 @@
 <template>
   <div class="board board--local">
-    <square v-for="(square, index) in localBoard.squares"
+    <cell v-for="(cell, index) in localBoard.cells"
             :key="index"
-            :value="square"
-            @click.native="processTurn(board, index)"></square>
+            :value="cell"
+            @click.native="processTurn(board, index)"></cell>
   </div>
 </template>
 
 <script>
-import Square from '@/components/Square.vue';
+import Cell from '@/components/cell.vue';
 
 export default {
   name: 'board-section',
@@ -16,7 +16,7 @@ export default {
     'board',
   ],
   components: {
-    Square,
+    Cell,
   },
   computed: {
     localBoard() {
@@ -24,10 +24,10 @@ export default {
     },
   },
   methods: {
-    processTurn(board, square) {
+    processTurn(board, cell) {
       this.$store.dispatch('processTurn', {
         board,
-        square,
+        cell,
         value: 'X',
       });
     },
