@@ -1,4 +1,4 @@
-function isWinningCombo(cells) {
+export default (cells) => {
   const winningCombos = [
     [0, 1, 2],
     [3, 4, 5],
@@ -16,13 +16,4 @@ function isWinningCombo(cells) {
     }
     return false;
   });
-}
-
-
-export function didPlayerWinLocalBoard(localBoard) {
-  return isWinningCombo(localBoard.cells);
-}
-
-export function didPlayerWinGame() {
-
-}
+};
