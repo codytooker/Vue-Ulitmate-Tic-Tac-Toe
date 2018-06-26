@@ -9,7 +9,7 @@
   }
 
   &__winner {
-    @apply .absolute .pin .flex .items-center .justify-center .bg-black .text-white .text-5xl .z-20 .select-none ;
+    @apply .absolute .pin .flex .items-center .justify-center .bg-black .text-white .text-5xl .z-20 .select-none .flex-col ;
 
     .board--local & {
       @apply .z-10 .text-blue ;

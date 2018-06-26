@@ -1,7 +1,10 @@
 <template>
   <div class="board w-700 h-700">
-    <div class="board__winner" v-if="gameWinner">Player {{ gameWinner }} has won the game</div>
     <local-board v-for="i in 9" :key="i - 1" :board="i - 1" />
+    <div class="board__winner" v-if="gameWinner">
+      <span>Player {{ gameWinner }} has won the game</span>
+      <button class="btn btn--primary" @click="playAgain">Play Again</button>
+    </div>
   </div>
 </template>
 
@@ -15,6 +18,11 @@ export default {
   computed: {
     gameWinner() {
       return this.$store.getters['game/getWinner'];
+    },
+  },
+  methods: {
+    playAgain() {
+      this.$store.dispatch('resetAll');
     },
   },
 };
