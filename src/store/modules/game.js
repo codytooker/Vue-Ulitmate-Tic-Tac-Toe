@@ -1,4 +1,4 @@
-import { didPlayerWinLocalBoard } from '@/store/utils/game-logic';
+import isWinningCombo from '../utils/isWinningCombo';
 
 const initialstate = {
   player_one_symbol: 'X',
@@ -11,10 +11,14 @@ const game = {
   state: initialstate,
   getters: {
     getCurrentTurn: state => state.currentTurn,
+    getWinner: state => state.winner,
   },
   mutations: {
     changeCurrentTurn(state) {
       state.currentTurn = state.currentTurn === state.player_one_symbol ? state.player_two_symbol : state.player_one_symbol;
+    },
+    setWinner(state, { symbol }) {
+      state.winner = symbol;
     },
   },
   actions: {
@@ -29,21 +33,28 @@ const game = {
           value: currentTurn,
         });
 
-        commit('changeCurrentTurn');
-
         // check if localboard has a winner
-        if (didPlayerWinLocalBoard(localBoard)) {
+        if (isWinningCombo(localBoard.cells)) {
           commit('setBoardWinner', {
             board,
             winner: currentTurn,
           });
+
+          // check if full game has a winner
+          if (isWinningCombo(getters.getBoardWinners)) {
+            commit('setWinner', {
+              symbol: currentTurn,
+            });
+          }
         } else {
           console.log('no local winner yet');
         }
 
-        // if so check if full game has a winner
 
         // if no winner set which local board is active
+
+        // if no winner change the current turn
+        commit('changeCurrentTurn');
       }
     },
   },
