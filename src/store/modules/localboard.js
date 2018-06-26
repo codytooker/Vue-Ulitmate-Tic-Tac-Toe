@@ -22,8 +22,11 @@ const cells = {
     getBoardById: state => id => state[id],
   },
   mutations: {
-    setcellValue(state, { board, cell, value }) {
+    setCellValue(state, { board, cell, value }) {
       state[board].cells.splice(cell, 1, value);
+    },
+    setBoardWinner(state, { board, winner }) {
+      state[board].winner = winner;
     },
   },
 };
