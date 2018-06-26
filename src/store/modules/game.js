@@ -1,3 +1,5 @@
+import { didPlayerWinLocalBoard } from '@/store/utils/game-logic';
+
 const initialstate = {
   player_one_symbol: 'X',
   player_two_symbol: 'O',
@@ -16,14 +18,32 @@ const game = {
     },
   },
   actions: {
-    processTurn({ rootState, commit, getters }, { board, cell }) {
-      if (rootState.localboard[board].cells[cell] === null) {
-        commit('setcellValue', {
+    processTurn({ commit, getters }, { board, cell }) {
+      const localBoard = getters.getBoardById(board);
+      const currentTurn = getters.getCurrentTurn;
+
+      if (localBoard.cells[cell] === null) {
+        commit('setCellValue', {
           board,
           cell,
-          value: getters.getCurrentTurn,
+          value: currentTurn,
         });
+
         commit('changeCurrentTurn');
+
+        // check if localboard has a winner
+        if (didPlayerWinLocalBoard(localBoard)) {
+          commit('setBoardWinner', {
+            board,
+            winner: currentTurn,
+          });
+        } else {
+          console.log('no local winner yet');
+        }
+
+        // if so check if full game has a winner
+
+        // if no winner set which local board is active
       }
     },
   },
