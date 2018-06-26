@@ -1,14 +1,14 @@
 import isWinningCombo from '../utils/isWinningCombo';
 
-const initialstate = {
+const getDefaultState = () => ({
   player_one_symbol: 'X',
   player_two_symbol: 'O',
   currentTurn: 'X',
   winner: null,
-};
+});
 
 const game = {
-  state: initialstate,
+  state: getDefaultState,
   getters: {
     getCurrentTurn: state => state.currentTurn,
     getWinner: state => state.winner,

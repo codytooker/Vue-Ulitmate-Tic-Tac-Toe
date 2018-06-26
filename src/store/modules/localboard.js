@@ -1,4 +1,4 @@
-const setInitialState = () => {
+const getDefaultState = () => {
   const state = [];
   for (let i = 0; i < 9; i += 1) {
     const el = {
@@ -17,7 +17,7 @@ const setInitialState = () => {
 };
 
 const cells = {
-  state: setInitialState,
+  state: getDefaultState,
   getters: {
     getBoardById: state => id => state[id],
     getBoardWinners: state => state.map(board => board.winner),
