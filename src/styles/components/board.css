@@ -5,5 +5,11 @@
 
   &--local {
     grid-gap: 1px;
+    position: relative;
+  }
+  &__winner {
+    @apply .absolute .pin .flex .items-center .justify-center .text-blue .z-10 .select-none ;
+    background-color: rgba(0, 0, 0, .8);
+    font-size: 12rem;
   }
 }
