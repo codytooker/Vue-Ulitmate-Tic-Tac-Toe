@@ -3,7 +3,7 @@
     <square v-for="(square, index) in localBoard.squares"
             :key="index"
             :value="square"
-            @click.native="setSquareValue(board, index)"></square>
+            @click.native="processTurn(board, index)"></square>
   </div>
 </template>
 
@@ -24,8 +24,8 @@ export default {
     },
   },
   methods: {
-    setSquareValue(board, square) {
-      this.$store.commit('setSquareValue', {
+    processTurn(board, square) {
+      this.$store.dispatch('processTurn', {
         board,
         square,
         value: 'X',
