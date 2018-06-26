@@ -17,6 +17,7 @@ const getDefaultState = () => {
 };
 
 const cells = {
+  namespaced: true,
   state: getDefaultState,
   getters: {
     getBoardById: state => id => state[id],

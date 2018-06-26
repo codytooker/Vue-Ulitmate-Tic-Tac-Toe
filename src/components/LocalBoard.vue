@@ -12,7 +12,7 @@
 import Cell from '@/components/Cell.vue';
 
 export default {
-  name: 'board-section',
+  name: 'local-board',
   props: [
     'board',
   ],
@@ -21,12 +21,12 @@ export default {
   },
   computed: {
     localBoard() {
-      return this.$store.getters.getBoardById(this.board);
+      return this.$store.getters['localboard/getBoardById'](this.board);
     },
   },
   methods: {
     processTurn(board, cell) {
-      this.$store.dispatch('processTurn', {
+      this.$store.dispatch('game/processTurn', {
         board,
         cell,
         value: 'X',

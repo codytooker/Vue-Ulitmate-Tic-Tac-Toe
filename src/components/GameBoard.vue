@@ -14,7 +14,7 @@ export default {
   },
   computed: {
     gameWinner() {
-      return this.$store.getters.getWinner;
+      return this.$store.getters['game/getWinner'];
     },
   },
 };

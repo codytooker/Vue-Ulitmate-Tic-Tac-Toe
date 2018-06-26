@@ -8,6 +8,7 @@ const getDefaultState = () => ({
 });
 
 const game = {
+  namespaced: true,
   state: getDefaultState,
   getters: {
     getCurrentTurn: state => state.currentTurn,
@@ -22,26 +23,26 @@ const game = {
     },
   },
   actions: {
-    processTurn({ commit, getters }, { board, cell }) {
-      const localBoard = getters.getBoardById(board);
+    processTurn({ commit, getters, rootGetters }, { board, cell }) {
+      const localBoard = rootGetters['localboard/getBoardById'](board);
       const currentTurn = getters.getCurrentTurn;
 
       if (localBoard.cells[cell] === null) {
-        commit('setCellValue', {
+        commit('localboard/setCellValue', {
           board,
           cell,
           value: currentTurn,
-        });
+        }, { root: true });
 
         // check if localboard has a winner
         if (isWinningCombo(localBoard.cells)) {
-          commit('setBoardWinner', {
+          commit('localboard/setBoardWinner', {
             board,
             winner: currentTurn,
-          });
+          }, { root: true });
 
           // check if full game has a winner
-          if (isWinningCombo(getters.getBoardWinners)) {
+          if (isWinningCombo(rootGetters['localboard/getBoardWinners'])) {
             commit('setWinner', {
               symbol: currentTurn,
             });
