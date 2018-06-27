@@ -6,16 +6,16 @@ import Play from './views/Play.vue';
 Vue.use(Router);
 
 export default new Router({
-  mode  : 'history',
+  mode: 'history',
   routes: [
     {
-      path     : '/',
-      name     : 'home',
+      path: '/',
+      name: 'home',
       component: Home,
     },
     {
-      path     : '/play',
-      name     : 'play',
+      path: '/play',
+      name: 'play',
       component: Play,
     },
   ],
