@@ -21,12 +21,12 @@ export default {
   },
   computed: {
     localBoard() {
-      return this.$store.getters['localboard/getBoardById'](this.board);
+      return this.$store.getters.getBoardById(this.board);
     },
   },
   methods: {
     processTurn(board, cell) {
-      this.$store.dispatch('game/processTurn', {
+      this.$store.dispatch('processTurn', {
         board,
         cell,
         value: 'X',

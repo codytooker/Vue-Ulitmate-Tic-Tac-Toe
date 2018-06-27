@@ -17,12 +17,12 @@ export default {
   },
   computed: {
     gameWinner() {
-      return this.$store.getters['game/getWinner'];
+      return this.$store.getters.getWinner;
     },
   },
   methods: {
     playAgain() {
-      this.$store.dispatch('resetAll');
+      this.$store.commit('resetState');
     },
   },
 };
