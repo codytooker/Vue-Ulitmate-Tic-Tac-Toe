@@ -1,5 +1,5 @@
 <template>
-  <span class="flex items-center justify-center bg-white text-5xl select-none" v-text="value" />
+  <span class="cell" v-text="value" />
 </template>
 
 <script>
