@@ -1,7 +1,11 @@
 {
   "name": "ultimate-tic-tac-toe",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "repository" : {
+    "type" : "git",
+    "url" : "git@github.com:codytooker/Vue-Ulitmate-Tic-Tac-Toe.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
