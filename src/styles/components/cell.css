@@ -1,0 +1,7 @@
+.cell {
+  @apply .flex .items-center .justify-center .bg-grey .text-5xl .select-none ;
+
+  .board--isplayable & {
+    @apply .bg-white ;
+  }
+}

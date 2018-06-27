@@ -1,5 +1,6 @@
 <template>
-  <div class="board board--local">
+  <div class="board board--local"
+       :class="{ 'board--isplayable' : localBoard.isPlayable }">
     <div class="board__winner" v-if="localBoard.winner" v-text="localBoard.winner"></div>
     <cell v-for="(cell, index) in localBoard.cells"
             :key="index"
