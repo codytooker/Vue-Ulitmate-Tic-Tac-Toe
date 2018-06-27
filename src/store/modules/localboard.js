@@ -1,5 +1,7 @@
 const getDefaultState = () => {
-  const state = [];
+  const state = {
+    boards: [],
+  };
   for (let i = 0; i < 9; i += 1) {
     const el = {
       winner: null,
@@ -10,7 +12,7 @@ const getDefaultState = () => {
       el.cells.push(cell);
     }
 
-    state.push(el);
+    state.boards.push(el);
   }
 
   return state;
@@ -20,15 +22,15 @@ const cells = {
   namespaced: true,
   state: getDefaultState,
   getters: {
-    getBoardById: state => id => state[id],
-    getBoardWinners: state => state.map(board => board.winner),
+    getBoardById: state => id => state.boards[id],
+    getBoardWinners: state => state.boards.map(board => board.winner),
   },
   mutations: {
     setCellValue(state, { board, cell, value }) {
-      state[board].cells.splice(cell, 1, value);
+      state.boards[board].cells.splice(cell, 1, value);
     },
     setBoardWinner(state, { board, winner }) {
-      state[board].winner = winner;
+      state.boards[board].winner = winner;
     },
     resetState(state) {
       Object.assign(state, getDefaultState());
