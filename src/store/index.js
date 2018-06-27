@@ -63,7 +63,6 @@ export default new Vuex.Store({
   },
   actions: {
     processTurn({ commit, dispatch, getters }, { board, cell }) {
-      console.log(cell);
       const localBoard = getters.getBoardById(board);
       const currentTurn = getters.getCurrentTurn;
 
